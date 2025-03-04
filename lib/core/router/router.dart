@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matule/layers/presentation/screens/build_screen.dart';
+import 'package:matule/layers/presentation/screens/favorite_screen.dart';
 import 'package:matule/layers/presentation/screens/home_screen.dart';
+import 'package:matule/layers/presentation/screens/notification_screen.dart';
 import 'package:matule/layers/presentation/screens/onboarding_screen.dart';
 import 'package:matule/layers/presentation/screens/signin_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -20,6 +22,7 @@ class RouterAppConfig {
               isInit = true;
               if (supabase.auth.currentUser != null) {
                 print(supabase.auth.currentUser);
+                // return '/favorite';
                 return '/home';
               }
             }
@@ -36,7 +39,22 @@ class RouterAppConfig {
                       path: '/home',
                       builder: (context, state) => const HomeScreen(),
                     )
-                  ])
+                  ]),StatefulShellBranch(routes: [
+                    GoRoute(
+                      path: '/favorite',
+                      builder: (context, state) => const FavoriteScreen(),
+                    )
+                  ]),StatefulShellBranch(routes: [
+                    GoRoute(
+                      path: '/notification',
+                      builder: (context, state) => const NotificationScreen(),
+                    )
+                  ]),StatefulShellBranch(routes: [
+                    GoRoute(
+                      path: '/profile',
+                      builder: (context, state) => const HomeScreen(),
+                    )
+                  ]),
                 ]),
             GoRoute(
               path: '/onboarding',
