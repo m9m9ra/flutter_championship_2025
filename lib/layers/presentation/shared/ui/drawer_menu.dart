@@ -160,7 +160,7 @@ class DrawerMenu extends StatelessWidget {
                 ),
                 onPressed: () {
                   Supabase.instance.client.auth.signOut();
-                  context.go('/onboardiog');
+                  context.go('/onboarding');
                 }),
           )
         ],

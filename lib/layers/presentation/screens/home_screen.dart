@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:go_router/go_router.dart';
 import 'package:matule/core/settings/color_settings.dart';
 import 'package:matule/layers/presentation/shared/ui/product_card.dart';
 
@@ -97,6 +98,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () => setState(() {
                       _isSearch = true;
                     }),
+                    onSubmitted: (_) => setState(() {
+                      _isSearch = false;
+                      FocusScope.of(context).unfocus();
+                      context.push('/search');
+                    }),
                     decoration: InputDecoration(
                       prefixIcon: const Icon(CupertinoIcons.search),
                       suffixIcon: _isSearch
@@ -161,6 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [0, 0, 1].map((el) {
                       return GestureDetector(
                         onTap: () {
+                          context.push('/search');
                           if (kDebugMode) {
                             print('History tap');
                           }
@@ -252,6 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 16.0,
                                   color: ColorSettings().text)),
                           GestureDetector(
+                            onTap: () => context.push('/popular'),
                             child: Text('Все',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,

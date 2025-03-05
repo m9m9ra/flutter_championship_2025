@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matule/layers/presentation/screens/build_screen.dart';
+import 'package:matule/layers/presentation/screens/details_screen.dart';
 import 'package:matule/layers/presentation/screens/favorite_screen.dart';
 import 'package:matule/layers/presentation/screens/home_screen.dart';
 import 'package:matule/layers/presentation/screens/notification_screen.dart';
 import 'package:matule/layers/presentation/screens/onboarding_screen.dart';
+import 'package:matule/layers/presentation/screens/popular_screen.dart';
+import 'package:matule/layers/presentation/screens/search_screen.dart';
 import 'package:matule/layers/presentation/screens/signin_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -22,7 +25,7 @@ class RouterAppConfig {
               isInit = true;
               if (supabase.auth.currentUser != null) {
                 print(supabase.auth.currentUser);
-                // return '/favorite';
+                // return '/details';
                 return '/home';
               }
             }
@@ -63,6 +66,18 @@ class RouterAppConfig {
             GoRoute(
               path: '/signin',
               builder: (context, state) => const SigninScreen(),
+            ),
+            GoRoute(
+              path: '/search',
+              builder: (context, state) => const SearchScreen(),
+            ),
+            GoRoute(
+              path: '/popular',
+              builder: (context, state) => const PopularScreen(),
+            ),
+            GoRoute(
+              path: '/details',
+              builder: (context, state) => const DetailsScreen(),
             ),
           ]);
 }

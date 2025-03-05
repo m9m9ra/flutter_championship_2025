@@ -51,6 +51,7 @@ flutter:
     - assets/image_3.png
     - assets/nike_zoom.png
     - assets/bottombar.png
+    - assets/slider.png
     - .env
   #   - images/a_dot_ham.jpeg
 
