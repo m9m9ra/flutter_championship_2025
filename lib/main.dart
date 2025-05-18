@@ -37,9 +37,7 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: ColorSettings().background,
           platform: TargetPlatform.iOS,
           primaryColor: ColorSettings().accent,
-          colorScheme: ColorScheme.light(
-            primary: ColorSettings().accent
-          ),
+          colorScheme: ColorScheme.light(primary: ColorSettings().accent),
           pageTransitionsTheme: const PageTransitionsTheme(builders: {
             TargetPlatform.android: CupertinoPageTransitionsBuilder(),
             TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),

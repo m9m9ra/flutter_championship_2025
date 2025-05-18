@@ -42,17 +42,20 @@ class RouterAppConfig {
                       path: '/home',
                       builder: (context, state) => const HomeScreen(),
                     )
-                  ]),StatefulShellBranch(routes: [
+                  ]),
+                  StatefulShellBranch(routes: [
                     GoRoute(
                       path: '/favorite',
                       builder: (context, state) => const FavoriteScreen(),
                     )
-                  ]),StatefulShellBranch(routes: [
+                  ]),
+                  StatefulShellBranch(routes: [
                     GoRoute(
                       path: '/notification',
                       builder: (context, state) => const NotificationScreen(),
                     )
-                  ]),StatefulShellBranch(routes: [
+                  ]),
+                  StatefulShellBranch(routes: [
                     GoRoute(
                       path: '/profile',
                       builder: (context, state) => const HomeScreen(),
